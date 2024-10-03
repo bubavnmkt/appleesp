@@ -1,43 +1,470 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<!DOCTYPE html><html lang="pt-br"><head>  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styled.css">
+  <link rel="stylesheet" href="css/all.min.css">
+  <script async="" src="js/gtm.js"></script><script src="js/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="favicon.ico">
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <title>Apple Quiz</title>
+  <link href="https://fonts.googleapis.com/css2?family=SF+Pro+Text:wght@400;700&amp;display=swap" rel="stylesheet">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WH5L3GG6');</script>
+  <!-- End Google Tag Manager -->
+  
+</head>
+<body style="background-color: rgb(5,0,0);">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WH5L3GG6"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+  <header style="background-color: rgba(22, 22, 23, 1)">
+    
+    <img src="images/logo_cacau_show.svg" alt="" id="logo">
+    <span id="saldo" style="margin-left: auto"></span>
+    <svg width="18" height="18" viewBox="0 0 18 18"><polyline id="globalnav-menutrigger-bread-bottom" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" points="2 12, 16 12" class="globalnav-menutrigger-bread globalnav-menutrigger-bread-bottom"><animate id="globalnav-anim-menutrigger-bread-bottom-open" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 2 12, 16 12; 2 9, 16 9; 3.5 15, 15 3.5"></animate><animate id="globalnav-anim-menutrigger-bread-bottom-close" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 3.5 15, 15 3.5; 2 9, 16 9; 2 12, 16 12"></animate></polyline><polyline id="globalnav-menutrigger-bread-top" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" points="2 5, 16 5" class="globalnav-menutrigger-bread globalnav-menutrigger-bread-top"><animate id="globalnav-anim-menutrigger-bread-top-open" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 2 5, 16 5; 2 9, 16 9; 3.5 3.5, 15 15"></animate><animate id="globalnav-anim-menutrigger-bread-top-close" attributeName="points" keyTimes="0;0.5;1" dur="0.24s" begin="indefinite" fill="freeze" calcMode="spline" keySplines="0.42, 0, 1, 1;0, 0, 0.58, 1" values=" 3.5 3.5, 15 15; 2 9, 16 9; 2 5, 16 5"></animate></polyline></svg>
+  </header>
+  <main style="max-width: 500px;">
+    
+    <div class="card pergunta01" id="pergunta01" style="transform: translatey(10px);">
+      <div class="card__logo">
+        <img src="images/1.webp" alt="">
+      </div>
+      <div class="card__satisfacao">
+        <h2>¿Cómo calificaría su familiaridad con la marca Apple?</h2>
+        <div class="card__gradeContainer">
+          <div class="card__grade" id="card__grade1" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star1"></i>
+          </div>
+          <div class="card__grade" id="card__grade2" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star2"></i>
+          </div>
+          <div class="card__grade" id="card__grade3" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star3"></i>
+          </div>
+          <div class="card__grade" id="card__grade4" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star4"></i>
+          </div>
+          <div class="card__grade" id="card__grade5" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star5"></i>
+          </div>
+        </div>
+        <div class="card__gradeDescricao">
+          <p>Muy mala</p>
+          <p>Muy bueno</p>
+        </div>
+      </div>
+      <div class="card__resposta">
+        <h2>
+          Cuando piensas en la marca Apple, ¿cuál es la primera palabra que te viene a la mente?
+        </h2>
+        <div class="resposta__gradeContainer">
+          <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+            <p onclick="scrollToDown()">
+              Innovación
+            </p>
+          </div>
+          <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+            <p onclick="scrollToDown()">
+              Calidad
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card__resposta">
+        <h2>
+          ¿Qué imagen crees que representa Apple en el mercado?
+        </h2>
+        <div class="resposta__gradeContainer">
+          <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+            <p>
+              Líder en innovación
+            </p>
+          </div>
+          <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+            <p>
+              Fiabilidad y calidad
+            </p>
+          </div>
+        </div>
+      </div>
+      <button class="card__enviarResposta" id="enviarResposta" onclick="pergunta01()" disabled="">
+        ENVIAR
+      </button>
+    </div>
+    <div class="card pergunta02" id="pergunta02" style="display: none; transform: translatey(10px);">
+      <div class="card__logo">
+        <img src="images/2.webp" alt="">
+      </div>
+      <div class="card__satisfacao">
+        <h2>
+          ¿Cómo calificaría la calidad de los dispositivos Apple que ha probado?
+        </h2>
+        <div class="card__gradeContainer">
+          <div class="card__grade" id="card__grade1" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star1"></i>
+          </div>
+          <div class="card__grade" id="card__grade2" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star2"></i>
+          </div>
+          <div class="card__grade" id="card__grade3" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star3"></i>
+          </div>
+          <div class="card__grade" id="card__grade4" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star4"></i>
+          </div>
+          <div class="card__grade" id="card__grade5" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star5"></i>
+          </div>
+        </div>
+        <div class="card__gradeDescricao">
+          <p>Muy malo</p>
+          <p>Very good</p>
+        </div>
+      </div>
+      <div class="card__resposta">
+        <h2>
+          ¿Cuándo crees que es el momento perfecto para usar los AirPods Max?     
+        </h2>
+        <div class="resposta__gradeContainer">
+          <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+            <p onclick="scrollToDown()">
+              Durante el trabajo              
+            </p>
+          </div>
+          <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+            <p onclick="scrollToDown()">
+              En mi tiempo libre.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card__resposta">
+        <h2>
+          ¿Qué producto Apple utilizas más?
+        </h2>
+        <div class="resposta__gradeContainer">
+          <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+            <p>
+              iPhone
+            </p>
+          </div>
+          <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+            <p>
+              Otros dispositivos
+            </p>
+          </div>
+        </div>
+      </div>
+      <button class="card__enviarResposta" id="enviarResposta" onclick="pergunta02()" disabled="">
+        ENVIAR
+      </button>
+    </div>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <div class="card pergunta03" id="pergunta03" style="display: none; transform: translatey(10px);">
+      <div class="card__logo">
+        <img src="images/3.webp" alt="">
+      </div>
+      <div class="card__satisfacao">
+        <h2>
+          ¿Cómo calificarías la experiencia de regalarle a alguien productos Apple?
+        </h2>
+        <div class="card__gradeContainer">
+          <div class="card__grade" id="card__grade1" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star1"></i>
+          </div>
+          <div class="card__grade" id="card__grade2" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star2"></i>
+          </div>
+          <div class="card__grade" id="card__grade3" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star3"></i>
+          </div>
+          <div class="card__grade" id="card__grade4" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star4"></i>
+          </div>
+          <div class="card__grade" id="card__grade5" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star5"></i>
+          </div>
+        </div>
+        <div class="card__gradeDescricao">
+          <p>Muy malo</p>
+          <p>Muy bueno</p>
+        </div>
+      </div>
+      <div class="card__resposta">
+        <h2>
+          Si tuvieras que regalarle a alguien productos Apple, ¿quién sería?            
+        </h2>
+        <div class="resposta__gradeContainer">
+          <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+            <p onclick="scrollToDown()">
+              Familia
+            </p>
+          </div>
+          <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+            <p onclick="scrollToDown()">
+              Amigos
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card__resposta">
+        <h2>
+          ¿Qué producto Apple elegirías para regalar a alguien especial?            
+        </h2>
+        <div class="resposta__gradeContainer">
+          <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+            <p>
+              iPhone
+            </p>
+          </div>
+          <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+            <p>
+              AirPods
+            </p>
+          </div>
+        </div>
+      </div>
+      <button class="card__enviarResposta" id="enviarResposta" onclick="pergunta03()" disabled="">
+        ENVIAR
+      </button>
+    </div>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <div class="card pergunta04" id="pergunta04" style="display: none; transform: translatey(10px);">
+      <div class="card__logo">
+        <img src="images/4.webp" alt="">
+      </div>
+      <div class="card__satisfacao">
+        <h2>
+          ¿Qué importancia tiene tu conexión emocional con la marca Apple?        
+        </h2>
+        <div class="card__gradeContainer">
+          <div class="card__grade" id="card__grade1" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star1"></i>
+          </div>
+          <div class="card__grade" id="card__grade2" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star2"></i>
+          </div>
+          <div class="card__grade" id="card__grade3" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star3"></i>
+          </div>
+          <div class="card__grade" id="card__grade4" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star4"></i>
+          </div>
+          <div class="card__grade" id="card__grade5" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star5"></i>
+          </div>
+        </div>
+        <div class="card__gradeDescricao">
+          <p>Muy malo</p>
+          <p>Muy bien</p>
+        </div>
+      </div>
+      <div class="card__resposta">
+        <h2>
+          ¿Qué experiencia con Apple te gustaría tener?
+        </h2>
+        <div class="resposta__gradeContainer">
+          <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+            <p onclick="scrollToDown()">
+              Una visita a la tienda con la oportunidad de probar productos inéditos.
+            </p>
+          </div>
+          <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+            <p onclick="scrollToDown()">
+              Poder elegir y comprar un artículo de última generación con descuento
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card__resposta">
+        <h2>
+          ¿Qué hace que Apple sea especial para ti?            
+        </h2>
+        <div class="resposta__gradeContainer">
+          <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+            <p>
+              La calidad y durabilidad de los dispositivos.
+            </p>
+          </div>
+          <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+            <p>
+              El ecosistema integrado
+            </p>
+          </div>
+        </div>
+      </div>
+      <button class="card__enviarResposta" id="enviarResposta" onclick="pergunta04()" disabled="">
+        ENVIAR
+      </button>
+    </div>
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
-</html>
+    <div class="card pergunta05" id="pergunta05" style="display: none; transform: translatey(10px);">
+      <div class="card__logo">
+        <img src="images/5.webp" alt="">
+      </div>
+      <div class="card__satisfacao">
+        <h2>
+          ¿Qué tan entusiasmado estás con los productos innovadores de Apple?
+        </h2>
+        <div class="card__gradeContainer">
+          <div class="card__grade" id="card__grade1" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star1"></i>
+          </div>
+          <div class="card__grade" id="card__grade2" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star2"></i>
+          </div>
+          <div class="card__grade" id="card__grade3" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star3"></i>
+          </div>
+          <div class="card__grade" id="card__grade4" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star4"></i>
+          </div>
+          <div class="card__grade" id="card__grade5" onclick="toggleCard(this)">
+            <i class="fa-regular fa-star" id="star5"></i>
+          </div>
+        </div>
+        <div class="card__gradeDescricao">
+          <p>Muy malo</p>
+          <p>Muy bien</p>
+        </div>
+      </div>
+      <div class="card__resposta">
+        <h2>
+          ¿Considerarías comprar productos Apple reacondicionados en el futuro?
+        </h2>
+        <div class="resposta__gradeContainer">
+          <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+            <p onclick="scrollToDown()">
+              Sí
+            </p>
+          </div>
+          <div class="resposta__grade resposta1" onclick="toggleResponse(this, 'resposta1')">
+            <p onclick="scrollToDown()">
+              No estoy interesado
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card__resposta">
+        <h2>
+          ¿Le gustaría confirmar su interés en reclamar un producto Apple reacondicionado por una tarifa única de $19,95?
+        </h2>
+          <div class="resposta__grade resposta2" onclick="toggleResponse(this, 'resposta2')">
+            <p>Sí, quiero reclamar mi producto Apple ahora!</p>
+          </div>
+      </div>
+      <button class="card__enviarResposta" id="enviarResposta" onclick="pergunta05()" disabled="" style="margin-top: 20px;">
+        FINALIZE EVALUATION
+      </button>
+    </div>
+    <div class="card finalizacao" id="finalizacao" style="display: none; transform: translatey(-15px) !important;">
+      <div class="finalizacao__titulo">
+        <h1>FELICIDADES!</h1>
+      </div>
+      <div class="finalizacao__trofeu">
+        <img src="images/ursinhosnobg.png" alt="">
+      </div>
+      <div class="finalizacao__descricao">
+        <p>
+          Ha completado nuestra encuesta y ha obtenido un <b>95% de descuento</b> en uno de nuestros productos.
+          <br>
+          Gracias por su participación.
+          <br>
+          Haz clic ahora en el botón <b>"CANJEAR AHORA</b>, elige tu producto y completa tu compra.
+        </p>
+        <p>
+      </p></div>
+      <div class="finalizacao__botao">
+        <a href="https://apple-send.online/apple-ar/site/"><button style="background-color: #228B22;">
+          ¡CANJEE AHORA!
+        </button></a>
+      </div>
+    </div>
+
+    <button data-bs-toggle="modal" data-bs-target="#modal01" id="popup" style="display: none"></button>
+
+    <div class="modal" tabindex="-1" id="modal01">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="card apresentacao" style="margin-top: 0px !important">
+            <h2>
+              🎉 ENCUESTA PARA ACCESO PROMOCIONAL DE APPLE 🎉
+            </h2>
+            <p>
+              Hola, gracias por participar en nuestra encuesta.
+              <br>
+              Estás a punto de responder algunas preguntas rápidas y 
+              <strong>Preguntas objetivas en formato de cuestionario.</strong> 
+              Como muestra de nuestro agradecimiento por apoyar 
+              <strong style="text-decoration: underline !important">Apple Inc.</strong>,
+               Recibirás un descuento promocional del 95% en la compra.
+              <strong>uno de nuestros productos.</strong>
+            </p>
+            <button type="button" data-bs-dismiss="modal" style="margin-top: 10px;">COMENZAR LA ENCUESTA
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/hideAllExcept.js"></script>
+  <script src="js/selectedCard.js"></script>
+  <script src="js/selectedResponse.js"></script>
+  <script src="js/buttonCheck.js"></script>
+  <script src="js/popup.js"></script>
+  <script src="js/sendResponse.js"></script>
+  <script>
+    $(document).ready(function () {
+      let data = new Date();
+
+      var date = data.getDate();
+      var month = [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ][data.getMonth()];
+      var year = data.getFullYear();
+
+      $("#todayDate").html(`${date} of ${month} of ${year}**`);
+    });
+  </script>
+  <script type="text/javascript" src="js/crypto-js.min.js"></script>
+
+  <script>
+    var popup = document.getElementById("popup");
+
+    document.addEventListener("DOMContentLoaded", function () {
+      popup.click();
+    });
+  </script>
+  
+  <script>
+  window.onload = function () {
+      var links = document.getElementsByTagName("a");
+      for (var i = 0, n = links.length; i < n; i++) {
+          var href = links[i].href.trim() +
+                  (links[i].href.indexOf("?") > 0 ? '&' : '?') +
+                  document.location.search.replace('?', '').toString();
+          links[i].href = href;
+      }
+  }
+</script>
+</body></html>
